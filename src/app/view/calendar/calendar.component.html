@@ -1,0 +1,54 @@
+<div class="card flex flex-wrap gap-3 p-fluid">
+  <div class="flex-auto">
+    <label for="buttondisplay" class="font-bold block mb-2">
+      Button Display
+    </label>
+    <p-calendar
+      [(ngModel)]="date1"
+      [showIcon]="true"
+      inputId="buttondisplay"
+      dateFormat="dd.mm.yy"
+      placeholder="dd.mm.yy"
+    ></p-calendar>
+  </div>
+
+  <div class="flex-auto">
+    <label for="icondisplay" class="font-bold block mb-2"> Icon Display </label>
+    <p-calendar
+      [(ngModel)]="date2"
+      [iconDisplay]="'input'"
+      [showIcon]="true"
+      inputId="icondisplay"
+      dateFormat="D M yy"
+      placeholder="D M yy"
+    ></p-calendar>
+  </div>
+
+  <div class="flex-auto">
+    <label for="templatedisplay" class="font-bold block mb-2">
+      Template Display
+    </label>
+    <p-calendar
+      [(ngModel)]="date3"
+      [iconDisplay]="'input'"
+      [showIcon]="true"
+      inputId="templatedisplay"
+      placeholder="default mm/dd/yy"
+    >
+      <ng-template pTemplate="inputicon" let-clickCallBack="clickCallBack">
+        <i
+          class="pi pi-user pointer-events-none"
+          (click)="clickCallBack($event)"
+        ></i>
+      </ng-template>
+    </p-calendar>
+  </div>
+</div>
+<div class=" flex flex-row gap-3 ">
+  <div></div>
+  <div class="flex align-items-center justify-content-center">
+    <strong>more capablities from web site</strong>
+    <a href="https://primeng.org/calendar">calender</a>
+  </div>
+</div>
+

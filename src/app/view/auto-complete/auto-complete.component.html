@@ -1,0 +1,67 @@
+<div class="flex flex-column gap-4">
+  <div class="flex align-items-center justify-content-center">
+    <p-autoComplete
+      [(ngModel)]="selectedItem"
+      [suggestions]="suggestions"
+      (completeMethod)="search($event)"
+      placeholder="Type to search"
+    ></p-autoComplete>
+  </div>
+  <div class="flex align-items-center justify-content-center">
+    <form [formGroup]="formGroup">
+      <p-autoComplete
+        [(ngModel)]="selectedItem"
+        formControlName="selectedCountry"
+        [suggestions]="filteredCountries"
+        (completeMethod)="filterCountry($event)"
+        field="name"
+        placeholder="search by object"
+        [forceSelection]="true"
+      ></p-autoComplete>
+    </form>
+  </div>
+  <div class="flex align-items-center justify-content-center">
+    <p-autoComplete
+      [(ngModel)]="selectedItem"
+      [dropdown]="true"
+      [suggestions]="filteredCountries"
+      (completeMethod)="filterCountry($event)"
+      field="name"
+      placeholder="search by dropdown"
+      [virtualScroll]="true"
+    ></p-autoComplete>
+  </div>
+
+  <div class="flex align-items-center justify-content-center">
+    <p-autoComplete
+      [(ngModel)]="selectedItem"
+      [suggestions]="filteredCountries"
+      (completeMethod)="filterCountry($event)"
+      field="name"
+      placeholder="template item search"
+      [multiple]="true"
+    >
+      <ng-template let-country pTemplate="item">
+        <div class="flex align-items-center gap-2 ">
+          <img
+            src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+            [class]="'flag flag-' + country.code.toLowerCase()"
+            style="width: 18px"
+          />
+          <div>{{ country.name }}</div>
+        </div>
+      </ng-template>
+    </p-autoComplete>
+  </div>
+
+  <div class="flex align-items-center justify-content-center">
+    <p-autoComplete [(ngModel)]="selectedItem" [group]="true" [suggestions]="filteredGroups" (completeMethod)="filterGroupedCity($event)" placeholder="Hint: type 'a'">
+        <ng-template let-group pTemplate="group">
+            <div class="flex align-items-center">
+                <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'mr-2 flag flag-' + group.value" style="width: 20px" />
+                <span>{{ group.label }}</span>
+            </div>
+        </ng-template>
+    </p-autoComplete>
+</div>
+</div>

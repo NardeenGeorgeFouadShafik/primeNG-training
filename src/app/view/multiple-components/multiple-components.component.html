@@ -1,0 +1,27 @@
+<div class="card flex justify-content-center">
+    <p-selectButton [options]="options" [(ngModel)]="value" [multiple]="true" optionLabel="name" optionValue="value"></p-selectButton>
+</div>
+<div class="card flex justify-content-center">
+    <p-selectButton [options]="justifyOptions" [(ngModel)]="value" optionLabel="icon">
+        <ng-template let-item pTemplate>
+            <i [class]="item.icon"></i>
+        </ng-template>
+    </p-selectButton>
+</div>
+<div class="card flex justify-content-center">
+
+<p-slider [(ngModel)]="value" [min]="0" [max]="100" [step]="1"></p-slider>
+</div>
+<div class="card flex justify-content-center">
+    <p-slider [(ngModel)]="rangeValues" [range]="true"></p-slider>
+</div>
+<div class="card flex justify-content-center">
+    <form [formGroup]="formGroup" class="flex flex-column align-items-center gap-3">
+        <p-triStateCheckbox formControlName="checked" inputId="checked"></p-triStateCheckbox>
+        <label  for="checked">{{ formGroup.value.checked === null ? 'null' : formGroup.value.checked }}</label>
+    </form>
+</div>
+<div class="card flex justify-content-center">
+
+<p-toggleButton [(ngModel)]="checked" onLabel="Iconfirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" [style]="{ width: '10em' }"></p-toggleButton>
+</div>

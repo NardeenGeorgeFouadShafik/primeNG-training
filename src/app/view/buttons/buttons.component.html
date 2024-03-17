@@ -1,0 +1,45 @@
+<p-button label="inputs" (click)="navigate()" [link]="true"></p-button>
+<a
+  href="https://angular.dev/"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="p-button font-bold"
+  >Navigate</a
+>
+<p-button label="Submit" [loading]="loading" (onClick)="load()"></p-button>
+<p-button
+  label="Loading custom icon"
+  [loading]="loading"
+  loadingIcon="pi pi-bell"
+  (onClick)="load()"
+></p-button>
+<div class="card flex justify-content-center">
+  <p-toast></p-toast>
+  <p-splitButton
+    label="Save"
+    icon="pi pi-plus"
+    styleClass="p-button-rounded p-button-secondary mr-2 mb-2"
+    (onClick)="save('success')"
+    [model]="items"
+  ></p-splitButton>
+</div>
+<div style="height: 100px; position: relative" class="speeddial-linear-demo">
+  <p-toast></p-toast>
+  <p-speedDial [model]="dialItems" direction="down"></p-speedDial>
+
+</div>
+<div class="card">
+    <div style="height: 500px; position: relative;" class="speeddial-circle-demo">
+        <p-toast></p-toast>
+        <p-speedDial [model]="items" [radius]="120" direction="up-left" type="quarter-circle" buttonClassName="p-button-success"></p-speedDial>
+        <p-speedDial [model]="items" [radius]="120" direction="up-right" type="quarter-circle" buttonClassName="p-button-success"></p-speedDial>
+        <p-speedDial [model]="items" [radius]="120" direction="down-left" type="quarter-circle" buttonClassName="p-button-success"></p-speedDial>
+        <p-speedDial [model]="items" [radius]="120" direction="down-right" type="quarter-circle" buttonClassName="p-button-success"></p-speedDial>
+    </div>
+</div>
+<div class="card">
+    <div style="height: 200px" class="flex justify-content-center">
+        <p-toast></p-toast>
+        <p-speedDial [model]="customItems" direction="up" [transitionDelay]="80" showIcon="pi pi-bars" hideIcon="pi pi-times" buttonClassName="p-button-outlined"></p-speedDial>
+    </div>
+</div>

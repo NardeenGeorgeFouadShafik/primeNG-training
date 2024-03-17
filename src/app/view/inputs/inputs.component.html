@@ -1,0 +1,95 @@
+<div class="card flex flex-column md:flex-row gap-3">
+  <p-inputGroup>
+    <p-inputGroupAddon>www</p-inputGroupAddon>
+    <input type="text" pInputText placeholder="Website" />
+  </p-inputGroup>
+
+  <p-inputGroup class="w-full md:w-30rem">
+    <p-inputGroupAddon>
+      <i class="pi pi-clock"></i>
+    </p-inputGroupAddon>
+
+    <p-inputGroupAddon>
+      <i class="pi pi-star-fill"></i>
+    </p-inputGroupAddon>
+
+    <input type="text" pInputText placeholder="Price" />
+    <p-inputGroupAddon>$</p-inputGroupAddon>
+    <p-inputGroupAddon>.00</p-inputGroupAddon>
+  </p-inputGroup>
+</div>
+<div class="card flex flex-column md:flex-row gap-3">
+  <p-inputGroup>
+    <button type="button" pButton label="Search"></button>
+    <input type="text" pInputText placeholder="Keyword" />
+  </p-inputGroup>
+
+  <p-inputGroup>
+    <input type="text" pInputText placeholder="Keyword" />
+    <button
+      type="button"
+      pButton
+      icon="pi pi-search"
+      class="p-button-warning"
+    ></button>
+  </p-inputGroup>
+</div>
+
+<div class="card flex flex-column md:flex-row gap-3">
+    <p-inputGroup>
+        <p-inputGroupAddon><p-checkbox [(ngModel)]="checkbox1" [binary]="true"></p-checkbox></p-inputGroupAddon>
+        <input type="text" pInputText placeholder="Username" />
+    </p-inputGroup>
+
+    <p-inputGroup>
+        <input type="text" pInputText placeholder="Price" />
+        <p-inputGroupAddon><p-radioButton name="category" value="price" [(ngModel)]="category"></p-radioButton></p-inputGroupAddon>
+    </p-inputGroup>
+
+    <p-inputGroup>
+        <p-inputGroupAddon><p-checkbox [(ngModel)]="checkbox2" [binary]="true"></p-checkbox></p-inputGroupAddon>
+        <input type="text" pInputText placeholder="Website" />
+        <p-inputGroupAddon><p-radioButton name="category" value="site" [(ngModel)]="category"></p-radioButton></p-inputGroupAddon>
+    </p-inputGroup>
+</div>
+<div class="card flex flex-wrap justify-content-center gap-3">
+    <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText />
+    </span>
+
+    <span class="p-input-icon-right">
+        <i class="pi pi-spin pi-spinner"></i>
+        <input type="text" pInputText />
+    </span>
+</div>
+<div class="card flex flex-wrap gap-3 p-fluid">
+
+    <div class="flex-auto">
+        <label for="minmaxfraction">Min-Max Fraction Digits</label>
+        <p-inputNumber inputId="minmaxfraction" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="5"> </p-inputNumber>
+    </div>
+    <div class="flex-auto">
+        <label for="minmax">Min-Max Boundaries</label>
+        <p-inputNumber  inputId="minmax" [min]="0" [max]="5"> </p-inputNumber>
+    </div>
+     <div class="flex-auto">
+        <label for="temperature">temperature</label>
+
+    <p-inputNumber prefix="↑ " inputId="temperature" suffix="℃" [min]="0" [max]="40"> </p-inputNumber>
+     </div>
+</div>
+<div class="card flex justify-content-center">
+    <p-inputNumber [style]="{'width': '4rem'}" [showButtons]="true" buttonLayout="vertical" spinnerMode="vertical" inputId="vertical" decrementButtonClass="p-button-secondary"
+        incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
+</div>
+<div class="card flex flex-wrap gap-3">
+    <div class="flex-auto">
+        <label for="blockspace" class="font-bold block mb-2"> Block Space </label>
+        <input pInputText id="blockspace" pKeyFilter="int" class="w-full" />
+    </div>
+    <div class="flex-auto">
+        <label for="block" class="font-bold block mb-2"> Block < > * ! </label>
+        <input pInputText id="block" pKeyFilter="int" class="w-full" />
+    </div>
+</div>

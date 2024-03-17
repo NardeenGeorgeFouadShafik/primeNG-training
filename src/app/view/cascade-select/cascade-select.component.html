@@ -1,0 +1,16 @@
+<div class="card flex justify-content-center">
+<span class="p-float-label">
+  <p-cascadeSelect  inputId="cs-city" [(ngModel)]="selectedCity" [options]="countries" optionLabel="cname"  [optionGroupChildren]="['states', 'cities']" [style]="{ minWidth: '14rem' }" placeholder="Select a City">
+        <ng-template pTemplate="option" let-country>
+            <div class="flex align-items-center gap-2">
+                <img *ngIf="country.states" src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'cflag cflag-' + country.code.toLowerCase()" />
+                <i class="pi pi-compass mr-2" *ngIf="country.cities"></i>
+                <i class="pi pi-map-marker mr-2" *ngIf="country.cname"></i>
+                <span>{{ country.cname || country.name || country.sname }}</span>
+            </div>
+        </ng-template>
+    </p-cascadeSelect>
+            <label for="cs-city">City</label>
+
+    </span>
+</div>

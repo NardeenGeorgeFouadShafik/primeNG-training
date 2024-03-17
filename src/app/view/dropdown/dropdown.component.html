@@ -1,0 +1,81 @@
+<div class="flex flex-column">
+  <div
+    class="flex align-items-center justify-content-center h-4rem font-bold border-round m-2"
+  >
+    <p-dropdown
+      [options]="countries"
+      [(ngModel)]="selectedCountry"
+      optionLabel="name"
+      [showClear]="true"
+      placeholder="Select a Country"
+    >
+      <ng-template pTemplate="selectedItem">
+        <div class="flex align-items-center gap-2" *ngIf="selectedCountry">
+          <img
+            src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+            [class]="'flag flag-' + selectedCountry.code.toLowerCase()"
+            style="width: 18px"
+          />
+          <div>{{ selectedCountry.name }}</div>
+        </div>
+      </ng-template>
+      <ng-template let-country pTemplate="item">
+        <div class="flex align-items-center gap-2">
+          <img
+            src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+            [class]="'flag flag-' + country.code.toLowerCase()"
+            style="width: 18px"
+          />
+          <div>{{ country.name }}</div>
+        </div>
+      </ng-template>
+    </p-dropdown>
+  </div>
+  <div
+    class="flex align-items-center justify-content-center h-4rem font-bold border-round m-2"
+  >
+    <p-dropdown
+      [options]="countries"
+      [(ngModel)]="selectedCountry"
+      optionLabel="name"
+      [filter]="true"
+      filterBy="name"
+      [showClear]="true"
+      placeholder="Select a Country"
+    >
+      <ng-template pTemplate="selectedItem" let-selectedOption>
+        <div class="flex align-items-center gap-2">
+          <img
+            src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+            [class]="'flag flag-' + selectedCountry.code.toLowerCase()"
+            style="width: 18px"
+          />
+          <div>{{ selectedOption.name }}</div>
+        </div>
+      </ng-template>
+      <ng-template let-country pTemplate="item">
+        <div class="flex align-items-center gap-2">
+          <img
+            src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+            [class]="'flag flag-' + country.code.toLowerCase()"
+            style="width: 18px"
+          />
+          <div>{{ country.name }}</div>
+        </div>
+      </ng-template>
+    </p-dropdown>
+  </div>
+  <div
+    class="flex align-items-center justify-content-center h-4rem font-bold border-round m-2"
+  >
+   <p-dropdown
+    [options]="items"
+    [(ngModel)]="selectedItem"
+    placeholder="Select Item"
+    [virtualScroll]="true"
+    [virtualScrollItemSize]="38"
+    [virtualScrollOptions]="options"
+></p-dropdown>
+
+  </div>
+</div>

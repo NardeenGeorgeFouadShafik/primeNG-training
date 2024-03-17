@@ -1,0 +1,10 @@
+<div class="card flex justify-content-center">
+    <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" selectionMode="multiple" [(ngModel)]="selectedNodes" [options]="nodes" placeholder="Select Item"></p-treeSelect>
+</div>
+<div class="card flex justify-content-center">
+    <p-treeSelect class="w-full md:w-20rem" containerStyleClass="w-full" [(ngModel)]="selectedNodes" [options]="nodes" display="chip" [metaKeySelection]="false" selectionMode="checkbox" placeholder="Select Item"></p-treeSelect>
+</div>
+
+<div class="card flex justify-content-center">
+    <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" [(ngModel)]="selectedNodes" [options]="nodes" placeholder="Select Item" [filter]="true" [filterInputAutoFocus]="true"></p-treeSelect>
+</div>
