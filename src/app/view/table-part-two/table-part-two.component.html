@@ -1,0 +1,150 @@
+<div class="card">
+    <p-table [value]="customers" sortField="representative.name" sortMode="single" dataKey="representative.name" rowGroupMode="subheader" groupRowsBy="representative.name" [tableStyle]="{'min-width': '70rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:20%">Name</th>
+                <th style="width:20%">Country</th>
+                <th style="width:20%">Company</th>
+                <th style="width:20%">Status</th>
+                <th style="width:20%">Date</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="groupheader" let-customer let-rowIndex="rowIndex" let-expanded="expanded">
+            <tr>
+                <td colspan="5">
+                    <button type="button" pButton pRipple [pRowToggler]="customer" class="p-button-text p-button-rounded p-button-plain mr-2" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                    <img [alt]="customer.representative.name" src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{customer.representative.image}}" width="32" style="vertical-align: middle" />
+                    <span class="font-bold ml-2">{{customer.representative.name}}</span>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="groupfooter" let-customer>
+            <tr class="p-rowgroup-footer">
+                <td colspan="4" style="text-align: right">Total Customers</td>
+                <td>{{calculateCustomerTotal(customer.representative.name)}}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-customer>
+            <tr>
+                <td>
+                    {{customer.name}}
+                </td>
+                <td>
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + customer.country.code" style="width: 20px">
+                    <span class="ml-1 vertical-align-middle">{{customer.country.name}}</span>
+                </td>
+                <td>
+                    {{customer.company}}
+                </td>
+                <td>
+                    <p-tag [value]="customer.status" [severity]="getSeverity(customer.status)"></p-tag>
+                </td>
+                <td>
+                    {{customer.date}}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<div class="card">
+    <p-table [value]="customers" sortField="representative.name" sortMode="single" [scrollable]="true" scrollHeight="400px" rowGroupMode="subheader" groupRowsBy="representative.name" [tableStyle]="{'min-width': '60rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Company</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="groupheader" let-customer>
+            <tr pRowGroupHeader>
+                <td colspan="5">
+                    <img [alt]="customer.representative.name" src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{customer.representative.image}}" width="32" style="vertical-align: middle" />
+                    <span class="font-bold ml-2">{{customer.representative.name}}</span>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="groupfooter" let-customer>
+            <tr>
+                <td colspan="5" class="text-right font-bold pr-6">Total Customers: {{calculateCustomerTotal(customer.representative.name)}}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer let-rowIndex="rowIndex">
+            <tr>
+                <td>
+                    {{customer.name}}
+                </td>
+                <td>
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag-' + customer.country.code" style="width: 20px">
+                    <span class="ml-1 vertical-align-middle">{{customer.country.name}}</span>
+                </td>
+                <td>
+                    {{customer.company}}
+                </td>
+                <td>
+                    <p-tag [value]="customer.status" [severity]="getSeverity(customer.status)"></p-tag>
+                </td>
+                <td>
+                    {{customer.date}}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+
+
+
+<div class="card">
+    <p-table [reorderableColumns]="true" [columns]="cols" [value]="virtualCars" [scrollable]="true" scrollHeight="250px" [rows]="100"
+    [virtualScroll]="true" [virtualScrollItemSize]="46" [lazy]="true" (onLazyLoad)="loadCarsLazy($event)" [resizableColumns]="true" >
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns" pReorderableColumn pResizableColumn style="width: 20%;">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+            <tr style="height:46px" [pReorderableRow]="index">
+                <td *ngFor="let col of columns" pReorderableRowHandle>
+                    {{rowData[col.field]}}
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="loadingbody" let-columns="columns">
+            <tr style="height:46px">
+                <td *ngFor="let col of columns; let even = even">
+                    <p-skeleton [ngStyle]="{'width': even ? (col.field === 'year' ? '30%' : '40%') : '60%'}"></p-skeleton>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<div class="card">
+    <p-table [columns]="selectedColumns" [value]="products" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="caption">
+            <p-multiSelect [options]="cols2" [(ngModel)]="selectedColumns" optionLabel="header"
+                selectedItemsLabel="{0} columns selected" [style]="{'min-width': '200px'}" placeholder="Choose Columns"></p-multiSelect>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th>Code</th>
+                <th *ngFor="let col of columns">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product let-columns="columns">
+            <tr>
+                <td>{{product.code}}</td>
+                <td *ngFor="let col of columns">
+                    {{product[col.field]}}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

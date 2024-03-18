@@ -9,11 +9,10 @@
     </p-selectButton>
 </div>
 <div class="card flex justify-content-center">
-
-<p-slider [(ngModel)]="value" [min]="0" [max]="100" [step]="1"></p-slider>
+<p-slider [(ngModel)]="value" [style]="{ width: '10rem' }" [min]="0" [max]="100" [step]="1"></p-slider>
 </div>
 <div class="card flex justify-content-center">
-    <p-slider [(ngModel)]="rangeValues" [range]="true"></p-slider>
+    <p-slider [(ngModel)]="rangeValues" [style]="{ width: '30rem' }" [range]="true"></p-slider>
 </div>
 <div class="card flex justify-content-center">
     <form [formGroup]="formGroup" class="flex flex-column align-items-center gap-3">

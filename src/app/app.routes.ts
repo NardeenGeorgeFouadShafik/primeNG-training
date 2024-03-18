@@ -12,20 +12,35 @@ import { TreeSelectComponent } from './view/tree-select/tree-select.component';
 import { ButtonsComponent } from './view/buttons/buttons.component';
 import { DataViewComponent } from './view/data-view/data-view.component';
 import { OrderListComponent } from './view/order-list/order-list.component';
+import { OrganizationChart } from 'primeng/organizationchart';
+import { OrganizationChartComponent } from './view/organization-chart/organization-chart.component';
+import { PaginationComponent } from './view/pagination/pagination.component';
+import { PickListComponent } from './view/pick-list/pick-list.component';
+import { TableComponent } from './view/table/table.component';
+import { TablePartTwoComponent } from './view/table-part-two/table-part-two.component';
+import { TimelineComponent } from './view/timeline/timeline.component';
+import { TreeComponent } from './view/tree/tree.component';
 
 export const routes: Routes = [
-  { path: 'auto-complete', component: AutoCompleteComponent },
-  { path: 'calender', component: CalendarComponent },
-  { path: 'cascade-select', component: CascadeSelectComponent },
-  { path: 'dropdown', component: DropdownComponent },
-  { path: 'inputs', component: InputsComponent },
-  { path: 'knop', component: KnopComponent },
-  { path: 'rating', component: RatingComponent },
-  { path: 'multi-components', component: MultipleComponentsComponent },
-  { path: 'tree-select', component: TreeSelectComponent },
-  { path: 'buttons', component: ButtonsComponent },
-  { path: 'data-view', component: DataViewComponent },
-  { path: 'order-list', component: OrderListComponent },
+  { path: "auto-complete", component: AutoCompleteComponent },
+  { path: "calender", component: CalendarComponent },
+  { path: "cascade-select", component: CascadeSelectComponent },
+  { path: "dropdown", component: DropdownComponent },
+  { path: "inputs", component: InputsComponent },
+  { path: "knop", component: KnopComponent },
+  { path: "rating", component: RatingComponent },
+  { path: "multi-components", component: MultipleComponentsComponent },
+  { path: "tree-select", component: TreeSelectComponent },
+  { path: "buttons", component: ButtonsComponent },
+  { path: "data-view", component: DataViewComponent },
+  { path: "order-list", component: OrderListComponent },
+  { path: "organization-chart", component: OrganizationChartComponent },
+  { path: "pagination", component: PaginationComponent },
+  { path: "pick-list", component: PickListComponent },
+  { path: "tables", component: TableComponent },
+  { path: "tables-part2", component: TablePartTwoComponent },
+  { path: "timeline", component: TimelineComponent },
+  { path: "tree", component: TreeComponent },
 
-  { path: '', component: AppComponent },
+  { path: "", component: AppComponent },
 ];

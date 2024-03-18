@@ -10,6 +10,8 @@ import { GroupedCountryService } from './services/grouped-country.service';
 import { NodeService } from './services/node.service';
 import { MessageService } from 'primeng/api';
 import { ProductService } from './services/product.service';
+import { CustomerService } from './services/customer.service';
+import { CarService } from './services/car.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -23,14 +25,15 @@ export const appConfig: ApplicationConfig = {
           useFactory: HttpLoaderFactory,
           deps: [HttpClient],
         },
-      }),
-      
+      })
     ),
     CountryService,
     GroupedCountryService,
     NodeService,
     MessageService,
     ProductService,
+    CustomerService,
+    CarService,
   ],
 };
 export function HttpLoaderFactory(httpClient: HttpClient) {
