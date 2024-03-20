@@ -12,6 +12,7 @@ import { MessageService } from 'primeng/api';
 import { ProductService } from './services/product.service';
 import { CustomerService } from './services/customer.service';
 import { CarService } from './services/car.service';
+import { TicketService } from './services/ticket.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -34,6 +35,7 @@ export const appConfig: ApplicationConfig = {
     ProductService,
     CustomerService,
     CarService,
+    TicketService,
   ],
 };
 export function HttpLoaderFactory(httpClient: HttpClient) {

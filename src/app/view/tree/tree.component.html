@@ -7,3 +7,32 @@
     <p-tree [value]="files" class="w-full md:w-30rem"></p-tree>
 </div>
 
+<div class="card flex justify-content-center">
+    <p-tree [value]="files" class="w-full md:w-30rem" selectionMode="single" [(selection)]="selectedFile"></p-tree>
+</div>
+
+<div class="card flex flex-column align-items-center justify-content-center">
+    <div class="flex align-items-center mb-4 gap-2">
+        <p-inputSwitch inputId="input-metakey" [(ngModel)]="metaKeySelection"></p-inputSwitch>
+        <label for="input-metakey">MetaKey</label>
+    </div>
+    <p-tree [metaKeySelection]="metaKeySelection" [value]="files" class="w-full md:w-30rem" selectionMode="multiple" [(selection)]="selectedFiles"></p-tree>
+</div>
+
+<div class="card flex justify-content-center">
+    <p-toast></p-toast>
+    <p-tree [value]="files" class="w-full md:w-30rem" selectionMode="single" [(selection)]="selectedFile"
+        (onNodeExpand)="nodeExpand($event)" (onNodeCollapse)="nodeCollapse($event)" (onNodeSelect)="nodeSelect($event)"(onNodeUnselect)="nodeUnselect($event)"></p-tree>
+</div>
+
+<div class="card flex justify-content-center">
+    <p-tree class="w-full md:w-30rem" [value]="files" [draggableNodes]="true" [droppableNodes]="true" draggableScope="self" droppableScope="self"></p-tree>
+</div>
+
+<div class="card flex justify-content-center">
+    <p-tree class="w-full md:w-30rem" [value]="nodes" [filter]="true" (onNodeExpand)="lazyNodeExpand($event)" [loading]="loading"></p-tree>
+</div>
+
+<div class="card flex justify-content-center">
+<p-tree class="w-full md:w-30rem" scrollHeight="250px" [virtualScroll]="true" [virtualScrollItemSize]="46" [value]="files"></p-tree>
+</div>

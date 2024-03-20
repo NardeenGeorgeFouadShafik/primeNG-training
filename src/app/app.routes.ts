@@ -20,6 +20,12 @@ import { TableComponent } from './view/table/table.component';
 import { TablePartTwoComponent } from './view/table-part-two/table-part-two.component';
 import { TimelineComponent } from './view/timeline/timeline.component';
 import { TreeComponent } from './view/tree/tree.component';
+import { TreeTableComponent } from './view/tree-table/tree-table.component';
+import { UploadFilesComponent } from './view/upload-files/upload-files.component';
+import { MenusComponent } from './view/menus/menus.component';
+import { StepperComponent } from './view/stepper/stepper.component';
+import { ChartComponent } from './view/chart/chart.component';
+import { CarouselComponent } from './view/carousel/carousel.component';
 
 export const routes: Routes = [
   { path: "auto-complete", component: AutoCompleteComponent },
@@ -41,6 +47,21 @@ export const routes: Routes = [
   { path: "tables-part2", component: TablePartTwoComponent },
   { path: "timeline", component: TimelineComponent },
   { path: "tree", component: TreeComponent },
+  { path: "tree-table", component: TreeTableComponent },
+  { path: "upload-files", component: UploadFilesComponent },
+  { path: "menus", component: MenusComponent },
+  {
+    path: "steps",
+    component: StepperComponent,
+    children: [
+      { path: "inputs", component: InputsComponent },
+      { path: "tables", component: TableComponent },
+      { path: "order-list", component: OrderListComponent },
+      { path: "organization-chart", component: OrganizationChartComponent },
+    ],
+  },
+  { path: "chart", component: ChartComponent },
+  { path: "carousel", component: CarouselComponent },
 
   { path: "", component: AppComponent },
 ];
